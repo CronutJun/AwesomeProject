@@ -1,10 +1,13 @@
 import React, {useRef, useState} from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { SafeAreaView, Dimensions, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, Dimensions, StyleSheet, Text, View, useWindowDimensions } from 'react-native';
 import WebView from 'react-native-webview';
 
+// const {windowWidth, windowHeight} = useWindowDimensions();
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+// const windowWidth = width;
+// const windowHeight = height;
 
 export default function App() {
  
@@ -15,7 +18,8 @@ export default function App() {
       <WebView
         ref={ref}
         style={styles.webview}
-        source={{uri: 'http://3.39.213.219:8081'}}
+        // source={{uri: 'http://3.39.213.219:8081'}}
+        source={{uri: 'http://d-dzterp1.koreacentral.cloudapp.azure.com/'}}
         scalesPageToFit={true}
         onNavigationStateChange={e => setNavState(e)}
       />
