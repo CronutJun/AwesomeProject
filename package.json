@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "expo": "~50.0.3",
+    "expo-build-properties": "~0.11.0",
     "expo-status-bar": "~1.11.1",
     "react": "18.2.0",
     "react-native": "0.73.2",
+    "react-native-camera-kit": "^13.0.0",
     "react-native-webview": "^13.6.4",
-    "expo-build-properties": "~0.11.0"
+    "typescript": "^5.3.0",
+    "@types/react": "~18.2.45"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

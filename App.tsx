@@ -10,7 +10,7 @@ export default function App() {
  
   const ref = useRef(null);
   const [navState, setNavState] = useState();
-  _onlayout = e => {
+  const _onlayout = e => {
     console.log(e.nativeEvent.layout)
     // ref.current.style = {width: `${e.nativeEvent.layout.width}`, height: `${e.nativeEvent.layout.height}`}
   }
