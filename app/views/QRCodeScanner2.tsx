@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Button } from 'react-native';
-import { CameraView, Camera } from 'expo-camera/next';
+import { Camera, CameraView } from 'expo-camera/next';
 
 export default function QRCodeScanner2() {
   const [hasPermission, setHasPermission] = useState(null);
@@ -8,7 +8,7 @@ export default function QRCodeScanner2() {
 
   useEffect(() => {
     const getCameraPermissions = async () => {
-      const {status}  = await Camera.requestCameraPermissionsAsync();
+      const { status } = await Camera.requestCameraPermissionsAsync();
       setHasPermission(status === 'granted');
     };
     getCameraPermissions();
@@ -24,7 +24,7 @@ export default function QRCodeScanner2() {
       <View style={styles.cameraContainer}>
         <CameraView
           onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
-          barcodeScannerSettings={{barCodeTypes: [ "qr", "pdf417"]}}
+          barcodeScannerSettings={{ barCodeTypes: ["qr", "pdf417"] }}
           style={styles.camera}
         />
       </View>
@@ -44,17 +44,29 @@ export default function QRCodeScanner2() {
   }
 
   return (
+    // <View style={styles.container}>
+    //   <Text style={styles.title}>Welcome to the Barcode Scanner App!</Text>
+    //   <Text style={styles.paragraph}>Scan a barcode to start your job.</Text>
+    //   {renderCamera()}
+    //   <TouchableOpacity
+    //     style={styles.button}
+    //     onPress={() => setScanned(false)}
+    //     disabled={scanned}
+    //   >
+    //     <Text style={styles.title}>Scan QR to Start your job</Text>
+    //   </TouchableOpacity>
+    // </View>
     <View style={styles.container}>
-      <Text style={styles.title}>Welcome to the Barcode Scanner App!</Text>
-      <Text style={styles.paragraph}>Scan a barcode to start your job.</Text>
-      {renderCamera()}
-      <TouchableOpacity
-        style={styles.button}
-        onPress={() => setScanned(false)}
-        disabled={scanned}
-      >
-        <Text style={styles.buttonText}>Scan QR to Start your job</Text>
-      </TouchableOpacity>
+      <CameraView
+        onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
+        barcodeScannerSettings={{
+          barCodeTypes: ["qr", "pdf417"],
+        }}
+        style={StyleSheet.absoluteFillObject}
+      />
+      {scanned && (
+        <Button title={"Tap to Scan Again"} onPress={() => setScanned(false)} />
+      )}
     </View>
   );
 }
@@ -85,7 +97,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   button: {
-    backgroundColor: 'blue',
+    backgroundColor: 'bluae',
     paddingHorizontal: 20,
     paddingVertical: 10,
     borderRadius: 5,

@@ -28,10 +28,8 @@ export default function App() {
           onNavigationStateChange={e => setNavState(e)}
         />
       </TouchableOpacity>
-      <Modal animationType="slide" visible={isModalVisible} transparent={true}>
-        <QRCodeScanner2>
-
-        </QRCodeScanner2>
+      <Modal animationType="slide" visible={isModalVisible} transparent={false}>
+        <QRCodeScanner2 />
       </Modal>
     </SafeAreaView>
   );
