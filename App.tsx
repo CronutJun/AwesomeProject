@@ -1,8 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView, Dimensions, StyleSheet, Text, View, useWindowDimensions, TouchableOpacity, Modal } from 'react-native';
 import WebView from 'react-native-webview';
-import QRCodeScanner2 from './app/views/QRCodeScanner2'
+// import QRCodeScanner2 from './app/views/QRCodeScanner2'
 
 const windowDimension = Dimensions.get('window');
 const screenDimension = Dimensions.get('screen');
@@ -28,12 +27,12 @@ export default function App() {
           onNavigationStateChange={e => setNavState(e)}
         />
       </TouchableOpacity>
-      <Modal animationType="slide" visible={isModalVisible} transparent={false}>
-        <QRCodeScanner2 />
-      </Modal>
     </SafeAreaView>
   );
 }
+{/* <Modal animationType="slide" visible={isModalVisible} transparent={false}>
+<QRCodeScanner2 />
+</Modal> */}
 
 const styles = StyleSheet.create({
   container: {
